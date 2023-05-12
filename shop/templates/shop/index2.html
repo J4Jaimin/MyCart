@@ -16,20 +16,23 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        {% if products %}
-        {% for product in products %}
+        <h1> Products </h1>
+        {% for key, value in args.items %}
+            {{ value }}
+        {% endfor %}
+        {% comment %} {% for product in args %}
             <div class="col-sm-5 col-lg-5">
                 <ul>
                     <li>{{product.product_name}}</li>
                     <li>{{product.category}}</li>   
                 </ul>
             </div>
-        {% endfor %}
-        {% else %}
+        {% endfor %} {% endcomment %}
+        {% comment %} {% else %}
         <div class="col-md-12">
             <p>No Products Available</p>
         </div>
-        {% endif %}
+        {% endif %} {% endcomment %}
         <script src="" async defer></script>
     </body>
 </html>

@@ -4,7 +4,11 @@ from shop.models import Product
 
 # Create your views here.
 def index2(request):
-    return render(request, 'shop/index2.html')
+    args = {}
+    data = Product.objects.all()
+    args['data'] = data
+
+    return render(request, 'shop/index2.html', args)
 
 def about(request):
     return render(request, 'shop/about.html')
@@ -28,14 +32,4 @@ def productview(request):
 
 def checkout(request):
     return render(request, 'shop/checkout.html')
-    # return HttpResponse("We are at checkout!")
-
-def products(request):
-    products = Product.objects.all()
-    context = {
-        'products' : products
-    }
-
-    # print(products)
-    # return render(request, 'shop/index2.html', context)
 
