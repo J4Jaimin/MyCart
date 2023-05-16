@@ -1,14 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from shop.models import Product
+from .models import Product
 
 # Create your views here.
-def index2(request):
+def index(request):
     args = {}
-    data = Product.objects.all()
-    args['data'] = data
+    products = Product.objects.all()
+    args['products'] = products
 
-    return render(request, 'shop/index2.html', args)
+    return render(request, 'shop/index.html', args)
+    # return render(request, 'shop/index.html')
 
 def about(request):
     return render(request, 'shop/about.html')
